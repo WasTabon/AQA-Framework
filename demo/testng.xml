@@ -22,4 +22,18 @@
         </classes>
     </test>
 
+    <test name="Web UI Tests">
+        <classes>
+            <class name="com.ultimateqa.tests.WebUITests" />
+        </classes>
+    </test>
+
+    <suite name="UltimateQA API Tests">
+    <test name="API Tests">
+        <classes>
+            <class name="com.ultimateqa.tests.APITests" />
+        </classes>
+    </test>
+</suite>
+
 </suite>
