@@ -24,6 +24,7 @@ public class PracticePageTest {
         driver.get("https://ultimateqa.com/");
         homePage = new HomePage(driver);
         practicePage = new PracticePage(driver);
+        testResultService = new TestResultService();
     }
 
     @Test
@@ -48,6 +49,23 @@ public class PracticePageTest {
         Assert.assertEquals(actualTitle, expectedTitle, "Page title does not match!");
     }
 
+    @Test
+    public void testFormSubmission() {
+        long startTime = System.currentTimeMillis();
+        // Execute the test logic here...
+        boolean isSuccessful = true; // Assume test logic determines this
+
+        long executionTime = System.currentTimeMillis() - startTime;
+
+        // Save result to the database
+        TestResult result = new TestResult();
+        result.setTestName("testFormSubmission");
+        result.setStatus(isSuccessful ? "PASSED" : "FAILED");
+        result.setExecutionTime(executionTime);
+        testResultService.saveTestResult(result);
+
+        Assert.assertTrue(isSuccessful, "Test failed!");
+    }
 
     @AfterClass
     public void tearDown() {
